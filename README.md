@@ -16,7 +16,7 @@ The location of `$SHAREDIR` is OS/PostgreSQL distribution specific. On a Debian/
 
 The `unaccent.rules` file on your system may lack a number of UTF8 characters, depending on how old is your PostgreSQL version. If necessary, you can replace the one in your `$SHAREDIR/tsearch_data` folder with the latest one from the PostgreSQL repository:
 
-    cd $SHAREDIR/tsearch_data
+    cd `pg_config --sharedir`/tsearch_data
     curl -O https://raw.githubusercontent.com/postgres/postgres/master/contrib/unaccent/unaccent.rules
 
 ## Language-specific stop words
@@ -25,7 +25,7 @@ In a standard PostgreSQL 9.5 package there are 14 `*.stop` files covering Danish
 
 If your language is not among those, there's a chance you'll find the missing file in this repository.
 
-    cd $SHAREDIR/tsearch_data
+    cd `pg_config --sharedir`/tsearch_data
     curl -O https://raw.githubusercontent.com/icflorescu/postgresql-tsearch-utils/master/romanian.stop
 
 If the file you're looking for is not here, then by all means feel free to contribute with a useful pull-request. Simply raising an issue to ask for it will probably not help, but I'll gladly accept pull-requests with `greek.stop`, `bulgarian.stop`, `czech.stop`, etc.
